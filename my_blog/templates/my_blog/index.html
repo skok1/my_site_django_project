@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}Main{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "my_blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "my_blog/post.css" %}">
+
+{% endblock %}
+
+{% block page_info %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "my_blog/image/me_yellow.jpeg" %}" alt="author of this blog">
+            <h2>Nikita`s blog </h2>
+        </header>
+        <p>Hi i'm Nikita and it's my page!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My latest post</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "my_blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What i do</h2>
+        <p>This is my blog and at this page i public my posts!!</p>
+    </section>
+{% endblock %}
